@@ -36,6 +36,8 @@ Mocking up web app with <b>Vitesse</b><sup><em>(speed)</em></sup><br>
 
 - 📲 [PWA](https://github.com/antfu/vite-plugin-pwa)
 
+- 💻 [Desktop Application](https://github.com/neutralinojs/neutralinojs)
+
 - 🎨 [UnoCSS](https://github.com/antfu/unocss) - the instant on-demand atomic CSS engine
 
 - 😃 [Use icons from any icon sets with classes](https://github.com/antfu/unocss/tree/main/packages/preset-icons)
@@ -57,8 +59,6 @@ Mocking up web app with <b>Vitesse</b><sup><em>(speed)</em></sup><br>
 - 🦾 TypeScript, of course
 
 - ⚙️ Unit Testing with [Vitest](https://github.com/vitest-dev/vitest), E2E Testing with [Cypress](https://cypress.io/) on [GitHub Actions](https://github.com/features/actions)
-
-- ☁️ Deploy on Netlify, zero-config
 
 <br>
 
@@ -124,33 +124,23 @@ As this template is strongly opinionated, the following provides a curated list 
 - [vitesse-nuxt-bridge](https://github.com/antfu/vitesse-nuxt-bridge) - Vitesse for Nuxt 2 with Bridge
 - [vitesse-webext](https://github.com/antfu/vitesse-webext) - WebExtension Vite starter template
 
-###### Community
-
-- [vitesse-ssr-template](https://github.com/frandiox/vitesse-ssr-template) by [@frandiox](https://github.com/frandiox) - Vitesse with SSR
-- [vitespa](https://github.com/ctholho/vitespa) by [@ctholho](https://github.com/ctholho) - Like Vitesse but without SSG/SSR
-- [vitailse](https://github.com/zynth17/vitailse) by [@zynth17](https://github.com/zynth17) - Like Vitesse but with TailwindCSS
-- [vitesse-modernized-chrome-ext](https://github.com/xiaoluoboding/vitesse-modernized-chrome-ext) by [@xiaoluoboding](https://github.com/xiaoluoboding) - ⚡️ Modernized Chrome Extension Manifest V3 Vite Starter Template
-- [vitesse-stackter-clean-architect](https://github.com/shamscorner/vitesse-stackter-clean-architect) by [@shamscorner](https://github.com/shamscorner) - A modular clean architecture pattern in vitesse template
-- [vitesse-enterprise](https://github.com/FranciscoKloganB/vitesse-enterprise) by [@FranciscoKloganB](https://github.com/FranciscoKloganB) - Consistent coding styles regardless of team-size.
-- [vitecamp](https://github.com/nekobc1998923/vitecamp) by [@nekobc1998923](https://github.com/nekobc1998923) - Like Vitesse but without SSG/SSR/File based routing, includes Element Plus
-- [vitesse-lite-react](https://github.com/lxy-yz/vitesse-lite-react) by [@lxy-yz](https://github.com/lxy-yz) - vitesse-lite React fork
-
 ## Try it now!
 
 > Vitesse requires Node >=14
 
 ### GitHub Template
 
-[Create a repo from this template on GitHub](https://github.com/antfu/vitesse/generate).
+[Create a repo from this template on GitHub](https://github.com/jaronwanderley/vitesse-neutralino/generate).
 
 ### Clone to local
 
 If you prefer to do it manually with the cleaner git history
 
 ```bash
-npx degit antfu/vitesse my-vitesse-app
-cd my-vitesse-app
+npx degit jaronwanderley/vitesse-neutralino my-app
+cd my-app
 pnpm i # If you don't have pnpm installed, run: npm install -g pnpm
+neu update # If you don't have Neutralino CLI installed, run: npm i -g @neutralinojs/neu
 ```
 
 ## Checklist
@@ -159,9 +149,13 @@ When you use this template, try follow the checklist to update your info properl
 
 - [ ] Change the author name in `LICENSE`
 - [ ] Change the title in `App.vue`
-- [ ] Change the hostname in `vite.config.ts`
-- [ ] Change the favicon in `public`
 - [ ] Remove the `.github` folder which contains the funding info
+- [ ] Change the manifest.name and manifest.short_name in `vite.config.ts`
+- [ ] Change the favicon.svg, favicon-dark.svg, favicon.ico in `public`
+- [ ] Change the pwa-192x192.png and pwa-512x512.png in `public`
+- [ ] Change applicationId in `neutralino.config.json`
+- [ ] Change modes.window.title in `neutralino.config.json`
+- [ ] Change cli.binaryName in `neutralino.config.json`
 - [ ] Clean up the READMEs and remove routes
 
 And, enjoy :)
@@ -170,25 +164,33 @@ And, enjoy :)
 
 ### Development
 
-Just run and visit http://localhost:3333
+To run on web browser just run and visit http://localhost:3333
 
 ```bash
 pnpm dev
 ```
+To run on Neutralino application with hotreloading run
+```bash
+pnpm neu
+```
+# If is your first use on project run
+```bash
+pnpm build && pnpm neu
+```
 
 ### Build
 
-To build the App, run
+To build the PWA App, run
 
 ```bash
 pnpm build
 ```
+And you will see the generated file in `dist/www` that ready to be served.
 
-And you will see the generated file in `dist` that ready to be served.
-
-### Deploy on Netlify
-
-Go to [Netlify](https://app.netlify.com/start) and select your clone, `OK` along the way, and your App will be live in a minute.
+To build the Desktop Application
+```bash
+pnpm neu:build
+```
 
 ## Why
 
