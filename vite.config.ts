@@ -131,7 +131,11 @@ export default defineConfig({
   ssgOptions: {
     script: 'async',
     formatting: 'minify',
-    onFinished() { generateSitemap() },
+    onFinished() {
+      generateSitemap({
+        outDir: 'dist/www',
+      })
+    },
   },
 
   // https://github.com/vitest-dev/vitest
@@ -141,5 +145,9 @@ export default defineConfig({
     deps: {
       inline: ['@vue', '@vueuse', 'vue-demi'],
     },
+  },
+
+  build: {
+    outDir: './dist/www',
   },
 })

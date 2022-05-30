@@ -7,3 +7,9 @@ dist-ssr
 node_modules
 .idea/
 *.log
+
+# Neutralino related files
+bin
+.tmp
+.storage
+.lite_workspace.lua

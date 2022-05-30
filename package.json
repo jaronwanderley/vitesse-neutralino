@@ -10,7 +10,9 @@
     "test": "vitest",
     "test:e2e": "cypress open",
     "test:unit": "vitest",
-    "typecheck": "vue-tsc --noEmit"
+    "typecheck": "vue-tsc --noEmit",
+    "neu": "neu run --frontend-lib-dev -- --window-enable-inspector",
+    "neu:build": "vite build && neu build"
   },
   "dependencies": {
     "@vueuse/core": "^8.5.0",
