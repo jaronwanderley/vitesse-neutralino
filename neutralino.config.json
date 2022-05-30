@@ -1,0 +1,44 @@
+{
+  "applicationId": "js.neutralino.zero",
+  "version": "1.0.0",
+  "defaultMode": "window",
+  "documentRoot": "/dist/www",
+  "url": "/",
+  "enableServer": true,
+  "enableNativeAPI": true,
+  "nativeAllowList": [
+    "app.*",
+    "clipboard.*",
+    "computer.*",
+    "debug.*",
+    "events.*",
+    "extensions.*",
+    "filesystem.*",
+    "os.*",
+    "storage.*",
+    "updater.*",
+    "window.*"
+  ],
+  "modes": {
+    "window": {
+      "title": "Vitesse",
+      "width": 800,
+      "height": 500,
+      "minWidth": 400,
+      "minHeight": 200,
+      "icon": "/dist/www/pwa-512x512.png"
+    }
+  },
+  "cli": {
+    "binaryName": "Vitesse",
+    "resourcesPath": "/dist/www",
+    "extensionsPath": "/extensions/",
+    "clientLibrary": "/public/neutralino.js",
+    "binaryVersion": "4.6.0",
+    "clientVersion": "3.5.0",
+    "frontendLibrary": {
+        "patchFile": "/dist/www/index.html",
+        "devUrl": "http://localhost:3333"
+    }
+  }
+}

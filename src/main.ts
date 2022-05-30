@@ -18,3 +18,22 @@ export const createApp = ViteSSG(
     Object.values(import.meta.globEager('./modules/*.ts')).forEach(i => i.install?.(ctx))
   },
 )
+
+declare global {
+  interface Window {
+    NL_PORT?: Number
+    NL_TOKEN?: String
+    NL_ARGS?: any
+    Neutralino?: any
+  }
+}
+
+if (import.meta.env.DEV) {
+  const { accessToken, port } = await import(`${'/'}.tmp/auth_info.json`) || {}
+  window.NL_PORT = port
+  window.NL_TOKEN = accessToken
+  window.NL_ARGS = []
+}
+if (typeof window !== 'undefined')
+  window.Neutralino.init()
+
