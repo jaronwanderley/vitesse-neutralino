@@ -7,6 +7,9 @@ const go = () => {
   if (name)
     router.push(`/hi/${encodeURIComponent(name)}`)
 }
+const setTitle = async () => {
+  await window.Neutralino.window.setTitle('This is a New Title')
+}
 
 const { t } = useI18n()
 </script>
@@ -51,6 +54,12 @@ const { t } = useI18n()
         @click="go"
       >
         {{ t('button.go') }}
+      </button>
+      <button
+        btn m-3 text-sm
+        @click="setTitle"
+      >
+        Set new Title
       </button>
     </div>
   </div>
